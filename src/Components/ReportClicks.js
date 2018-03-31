@@ -4,7 +4,7 @@ class ReportClicks extends Component {
     render() {
         return (
             <div>
-                {(!this.props.timerActive) ? "You average clicks per second was " + parseFloat(this.props.clicks / 5) + "." : null}
+                {(!this.props.timerActive) && this.props.clicks + " clicks. " + parseFloat(this.props.clicks / 5) + " clicks per second."}
             </div>
         )
     }
