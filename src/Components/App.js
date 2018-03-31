@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
 import CounterButton from './CounterButton';
+import ReportClicks from './ReportClicks';
 
 class App extends Component {
   constructor(props) {
@@ -14,12 +15,14 @@ class App extends Component {
     this.handleTimerStatus = this.handleTimerStatus.bind(this);
   }
 
+  // increments click counter when button is clicked
   handleClick() {
     if (this.state.timerActive) {
       this.setState({clicks: this.state.clicks + 1});
     }
   }
 
+  // toggle timer status from active / inactive
   handleTimerStatus() {
     this.setState((prevState) => {
       return {timerActive: !this.state.timerActive}
@@ -31,6 +34,7 @@ class App extends Component {
       <div>
         <Timer timerActive={this.state.timerActive} handleTimerStatus={this.handleTimerStatus} />
         <CounterButton clicks={this.state.clicks} handleClick={this.handleClick} />
+        <ReportClicks clicks={this.state.clicks} timerActive={this.state.timerActive} />
       </div>
     );
   }

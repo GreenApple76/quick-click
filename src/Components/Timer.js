@@ -33,7 +33,7 @@ class Timer extends Component {
   render() {
     return (
       <div>
-        {this.state.seconds} seconds
+        {this.state.seconds} seconds remaining
       </div>
     )
   }
