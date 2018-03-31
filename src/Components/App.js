@@ -7,20 +7,29 @@ class App extends Component {
     super(props);
     this.state = {
       clicks: 0,
+      timerActive: false,
       seconds: 5
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleTimerStatus = this.handleTimerStatus.bind(this);
   }
 
   handleClick() {
-    this.setState({clicks: this.state.clicks + 1});
+    if (this.state.timerActive) {
+      this.setState({clicks: this.state.clicks + 1});
+    }
   }
 
+  handleTimerStatus() {
+    this.setState((prevState) => {
+      return {timerActive: !this.state.timerActive}
+    });
+  }
   render() {
 
     return (
       <div>
-        <Timer />
+        <Timer timerActive={this.state.timerActive} handleTimerStatus={this.handleTimerStatus} />
         <CounterButton clicks={this.state.clicks} handleClick={this.handleClick} />
       </div>
     );

@@ -14,6 +14,8 @@ class Timer extends Component {
       // stop setInterval if timer has expired
       if (prevState.seconds === 0) {
         clearInterval(intervalID);
+        // set timerActive to false
+        this.props.handleTimerStatus();
       } else {
         return { seconds: prevState.seconds - 1 };
       }
@@ -22,6 +24,9 @@ class Timer extends Component {
   }
 
   componentDidMount() {
+    // set timerActive to true to enable counting clicks
+    this.props.handleTimerStatus();
+    // begin counting down 
     this.startTimer();
   }
 
