@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import Timer from './Timer';
 import CounterButton from './CounterButton';
 import ReportClicks from './ReportClicks';
@@ -11,6 +12,7 @@ class App extends Component {
       timerActive: false,
       seconds: 5
     };
+
     this.handleClick = this.handleClick.bind(this);
     this.handleTimerStatus = this.handleTimerStatus.bind(this);
   }
@@ -29,9 +31,12 @@ class App extends Component {
     });
   }
   render() {
+    const title = "Quick Click Challenge";
+    const subtitle = "How many clicks can you click in 5 seconds?";
 
     return (
       <div>
+        <Header title={title} subtitle={subtitle} />
         <Timer timerActive={this.state.timerActive} handleTimerStatus={this.handleTimerStatus} />
         <CounterButton clicks={this.state.clicks} handleClick={this.handleClick} />
         <ReportClicks clicks={this.state.clicks} timerActive={this.state.timerActive} />
