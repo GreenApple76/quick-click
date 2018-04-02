@@ -14,7 +14,7 @@ class App extends Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleTimerStatus = this.handleTimerStatus.bind(this);
+    this.toggleTimer = this.toggleTimer.bind(this);
     this.reset = this.reset.bind(this);
     this.startTimer = this.startTimer.bind(this);
   }
@@ -26,7 +26,7 @@ class App extends Component {
         if (prevState.seconds === 0) {
           clearInterval(intervalID);
           // set timerActive to false
-          this.handleTimerStatus();
+          this.toggleTimer();
         } else if (this.state.timerActive) {
           return { seconds: prevState.seconds - 1 };
         }
@@ -40,13 +40,13 @@ class App extends Component {
       this.setState({clicks: this.state.clicks + 1});
     } else { 
       this.setState({clicks: this.state.clicks + 1});
-      this.handleTimerStatus(); // toggle timer status to active
+      this.toggleTimer(); // toggle timer status to active
       this.startTimer();
     }
   }
 
   // toggle timer status from active / inactive
-  handleTimerStatus() {
+  toggleTimer() {
     this.setState((prevState) => {
       return {timerActive: !this.state.timerActive}
     });
