@@ -4,7 +4,7 @@ class CounterButton extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.props.handleClick}>Click Here - {this.props.clicks} clicks</button>    
+                {(this.props.seconds > 0) ? <button onClick={this.props.handleClick}>Click Here - {this.props.clicks} clicks</button> : <button style={{marginTop: "20px"}} onClick={this.props.reset}>Reset</button>}    
             </div>
         )
     }
