@@ -12,6 +12,7 @@ class App extends Component {
       timerActive: false,
       seconds: 5
     };
+    this.intervalActive = false;
 
     this.handleClick = this.handleClick.bind(this);
     this.toggleTimer = this.toggleTimer.bind(this);
@@ -21,10 +22,17 @@ class App extends Component {
 
     // countdown timer in seconds
     startTimer() {
+      // prevent more than one timer from running at the same time
+      if (this.intervalActive) {
+        return;
+      }
+
+      this.intervalActive = true;
       let intervalID = setInterval(() => { this.setState((prevState) => { 
         // stop setInterval if timer has expired
         if (prevState.seconds === 0) {
           clearInterval(intervalID);
+          this.intervalActive = false;
           // set timerActive to false
           this.toggleTimer();
         } else if (this.state.timerActive) {
