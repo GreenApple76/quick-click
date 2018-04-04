@@ -71,11 +71,11 @@ class App extends Component {
     const subtitle = "How many clicks can you click in 5 seconds?";
 
     return (
-      <div>
+      <div className="container">
         <Header title={title} subtitle={subtitle} />
         <Timer seconds={this.state.seconds} />
-        <CounterButton seconds={this.state.seconds} clicks={this.state.clicks} handleClick={this.handleClick} timerActive={this.state.timerActive} reset={this.reset} />
         <ReportClicks seconds={this.state.seconds} clicks={this.state.clicks} />
+        <CounterButton seconds={this.state.seconds} clicks={this.state.clicks} handleClick={this.handleClick} timerActive={this.state.timerActive} reset={this.reset} />
       </div>
     );
   }

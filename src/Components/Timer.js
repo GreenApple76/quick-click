@@ -4,7 +4,7 @@ class Timer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="timer-container">
         {this.props.seconds} seconds remaining
       </div>
     )
