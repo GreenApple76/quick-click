@@ -2,7 +2,7 @@
   "name": "quick-click",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://greenapple76.github.io/quick-click"
+  "homepage": "https://greenapple76.github.io/quick-click",
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
